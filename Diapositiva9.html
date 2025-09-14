@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consejos para el Éxito</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        color: #333;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+      .slide {
+        width: 1280px;
+        min-height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+    }
+      .header {
+        padding: 40px 70px 20px;
+        position: relative;
+      }
+      .title {
+        font-size: 48px;
+        font-weight: 700;
+        color: #00203f;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .title i {
+        margin-right: 15px;
+        color: #4ecdc4;
+        font-size: 42px;
+      }
+      .content {
+        flex-grow: 1;
+        padding: 0 70px 40px;
+        display: flex;
+        gap: 30px;
+        margin-top: auto; /* centrar verticalmente el bloque principal */
+        margin-bottom: auto;
+      }
+      .tips-container {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .tip-section {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 32, 63, 0.1);
+        overflow: hidden;
+        height: 200px;
+      }
+      .section-header {
+        padding: 10px 20px;
+        font-size: 26px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      .organization {
+        background-color: #ff6b6b;
+      }
+      .proactivity {
+        background-color: #4ecdc4;
+      }
+      .opportunities {
+        background-color: #9b59b6;
+      }
+      .section-header i {
+        margin-right: 12px;
+        font-size: 28px;
+      }
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 10px;
+      }
+      .tip-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        height: 100%;
+      }
+      .organization .tip-item {
+        background-color: rgba(255, 107, 107, 0.1);
+      }
+      .proactivity .tip-item {
+        background-color: rgba(78, 205, 196, 0.1);
+      }
+      .opportunities .tip-item {
+        background-color: rgba(155, 89, 182, 0.1);
+      }
+      .tip-item:hover {
+        transform: translateY(-5px);
+      }
+      .tip-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -22px;
+        margin-bottom: 6px;
+      }
+      .organization .tip-icon {
+        background-color: #ff6b6b;
+      }
+      .proactivity .tip-icon {
+        background-color: #4ecdc4;
+      }
+      .opportunities .tip-icon {
+        background-color: #9b59b6;
+      }
+      .tip-icon i {
+        font-size: 28px;
+        color: white;
+      }
+      .tip-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 3px;
+        color: #00203f;
+      }
+      .tip-desc {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.25;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      /* Empujar aún más los iconos en Organización */
+      .organization .tip-icon {
+        margin-top: -28px;
+      }
+      .highlight {
+        font-weight: 700;
+      }
+      .organization .highlight {
+        color: #d63031;
+      }
+      .proactivity .highlight {
+        color: #00b894;
+      }
+      .opportunities .highlight {
+        color: #6c5ce7;
+      }
+      .image-container {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+      }
+      .image-wrapper {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 32, 63, 0.1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .image-wrapper img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        flex-grow: 1;
+      }
+      .image-caption {
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        color: #555;
+        background: white;
+      }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+      
+      .back-button:hover {
+        background: linear-gradient(135deg, rgba(118, 75, 162, 0.9) 0%, rgba(102, 126, 234, 0.9) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+      
+      .back-button i {
+        font-size: 16px;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="slide">
+      <a href="index.html" class="back-button" title="Volver al inicio">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </a>
+
+      <div class="header">
+        <h1 class="title">
+          <i class="fas fa-lightbulb"></i>
+          Consejos para el Éxito
+        </h1>
+      </div>
+      <div class="content">
+        <div class="tips-container">
+          <div class="tip-section organization">
+            <div class="section-header">
+              <i class="fas fa-calendar-alt"></i>
+              Organización
+            </div>
+            <div class="tips-grid">
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-tasks"></i>
+                </div>
+                <div class="tip-title">Planificación</div>
+                <div class="tip-desc">
+                  Desde el <span class="highlight">primer día</span>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="tip-title">Constancia</div>
+                <div class="tip-desc">
+                  Estudio y práctica <span class="highlight">diaria</span>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="tip-title">Aprovechamiento</div>
+                <div class="tip-desc">
+                  Clases <span class="highlight">presenciales</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tip-section proactivity">
+            <div class="section-header">
+              <i class="fas fa-rocket"></i>
+              Actitud Proactiva
+            </div>
+            <div class="tips-grid">
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <div class="tip-title">Participación</div>
+                <div class="tip-desc">
+                  <span class="highlight">Activa</span> en clase
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="tip-title">Colaboración</div>
+                <div class="tip-desc">
+                  Proyectos <span class="highlight">grupales</span>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-search"></i>
+                </div>
+                <div class="tip-title">Curiosidad</div>
+                <div class="tip-desc">
+                  Explorar <span class="highlight">nuevas</span> <span class="highlight">tecnologías</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tip-section opportunities">
+            <div class="section-header">
+              <i class="fas fa-star"></i>
+              Oportunidades Especiales
+            </div>
+            <div class="tips-grid">
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <div class="tip-title">Módulo IA</div>
+                <div class="tip-desc">
+                  <span class="highlight">Ventaja competitiva</span>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="tip-title">P. Intermodular</div>
+                <div class="tip-desc">
+                  <span class="highlight">Portfolio</span> profesional
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="tip-title">FFEOE</div>
+                <div class="tip-desc">
+                  <span class="highlight">Puerta de entrada</span> laboral
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img
+              src="https://sfile.chatglm.cn/images-ppt/995784c442c4.jpg"
+              alt="Desarrollo web profesional"
+            />
+            <div class="image-caption">
+              <span class="highlight">Tecnología innovadora</span> para
+              aplicaciones web modernas
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

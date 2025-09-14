@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Final</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body { height: 100%; }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 32, 63, 0.75), rgba(0, 32, 63, 0.75)), 
+                        url('https://sfile.chatglm.cn/images-ppt/e38ae437ad4f.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+        }
+        .content {
+            text-align: center;
+            z-index: 2;
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .title {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ffffff;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .message {
+            font-size: 28px;
+            line-height: 1.5;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .highlight {
+            color: #4ecdc4;
+            font-weight: 600;
+        }
+        .icon-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .icon-item:hover {
+            transform: translateY(-5px);
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 2px solid rgba(78, 205, 196, 0.5);
+        }
+        .icon-circle i {
+            font-size: 36px;
+            color: #4ecdc4;
+        }
+        .icon-label {
+            font-size: 18px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+        .decorative-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 1;
+        }
+        .decorative-element-1 {
+            top: -100px;
+            right: -100px;
+        }
+        .decorative-element-2 {
+            bottom: -150px;
+            left: -100px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .footer-text {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color: rgba(0, 32, 63, 0.5);
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .back-button:hover {
+            background: linear-gradient(135deg, rgba(118, 75, 162, 0.9) 0%, rgba(102, 126, 234, 0.9) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        .back-button i { font-size: 16px; }
+        
+        .glow-effect {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(40px);
+            z-index: 1;
+            opacity: 0.7;
+        }
+        .glow-1 {
+            top: -200px;
+            left: -200px;
+        }
+        .glow-2 {
+            bottom: -200px;
+            right: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <a href="index.html" class="back-button" title="Volver al inicio">
+            <i class="fas fa-arrow-left"></i>
+            Volver
+        </a>
+        <div class="glow-effect glow-1"></div>
+        <div class="glow-effect glow-2"></div>
+        <div class="decorative-element decorative-element-1"></div>
+        <div class="decorative-element decorative-element-2"></div>
+        
+        <div class="content">
+            <h1 class="title">Mensaje Final</h1>
+            
+            <p class="message">
+                <span class="highlight">¡Este es vuestro año!</span> El segundo curso de DAW es el trampolín hacia vuestra carrera profesional.
+            </p>
+            
+            <p class="message">
+                Con esfuerzo, dedicación y aprovechando todas las oportunidades, estaréis preparados para el mercado laboral tecnológico.
+            </p>
+            
+            <p class="message">
+                Recordad: Con una base sólida y ganas de aprender, seréis profesionales muy valorados en el sector.
+            </p>
+            
+            <div class="icon-container">
+                <div class="icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-text">2º DAW – Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web</div>
+        </div>
+    </div>
+</body>
+</html>

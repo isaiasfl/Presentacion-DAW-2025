@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentación 2º DAW 2025/2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Source Sans Pro", sans-serif;
+      color: #333;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://sfile.chatglm.cn/images-ppt/4823cf2513ba.jpg') center/cover;
+      opacity: 0.15;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .main-title {
+      font-size: 4rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-out;
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      color: #a3d4ff;
+      margin-bottom: 3rem;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    .highlight {
+      color: #4ecdc4;
+      font-weight: 600;
+    }
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+    .slide-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .slide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s ease;
+    }
+    .slide-card:hover::before {
+      left: 100%;
+    }
+    .slide-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .slide-number {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(78, 205, 196, 0.2);
+    }
+    .slide-icon {
+      font-size: 3rem;
+      color: #4ecdc4;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    .slide-card:hover .slide-icon {
+      transform: rotate(360deg);
+    }
+    .slide-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #00203f;
+      margin-bottom: 0.5rem;
+    }
+    .slide-description {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .slide-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    .slide-link:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .floating-element {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+    .floating-element:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    .floating-element:nth-child(2) {
+      top: 20%;
+      right: 10%;
+      animation-delay: 1s;
+    }
+    .floating-element:nth-child(3) {
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 2s;
+    }
+    .floating-element:nth-child(4) {
+      bottom: 10%;
+      right: 20%;
+      animation-delay: 3s;
+    }
+    .nav-buttons {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+    .nav-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-btn:hover {
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    .author-info {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      z-index: 100;
+    }
+    .author-link {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .author-link:hover {
+      color: white;
+    }
+    .slides-container {
+      padding-top: 2rem;
+      scroll-margin-top: 2rem;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 1.2rem;
+      }
+      .slides-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-elements">
+    <i class="fas fa-code floating-element" style="font-size: 2rem;"></i>
+    <i class="fas fa-laptop-code floating-element" style="font-size: 2rem;"></i>
+    <i class="fas fa-mobile-alt floating-element" style="font-size: 2rem;"></i>
+    <i class="fas fa-database floating-element" style="font-size: 2rem;"></i>
+  </div>
+
+  <div class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="main-title">2º DAW 2025/2026</h1>
+      <p class="subtitle">
+        Ciclo Formativo de Grado Superior en <span class="highlight">Desarrollo de Aplicaciones Web</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="slides-container" id="slides-container">
+    <div class="slides-grid">
+    <div class="slide-card" onclick="window.location.href='Diapositiva1.html'">
+      <div class="slide-number">01</div>
+      <i class="fas fa-home slide-icon"></i>
+      <h3 class="slide-title">Bienvenida</h3>
+      <p class="slide-description">Presentación del curso y equipo docente</p>
+      <a href="Diapositiva1.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva2.html'">
+      <div class="slide-number">02</div>
+      <i class="fas fa-graduation-cap slide-icon"></i>
+      <h3 class="slide-title">Objetivos del Curso</h3>
+      <p class="slide-description">Metas y competencias a desarrollar</p>
+      <a href="Diapositiva2.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva3.html'">
+      <div class="slide-number">03</div>
+      <i class="fas fa-book slide-icon"></i>
+      <h3 class="slide-title">Módulos Formativos</h3>
+      <p class="slide-description">Asignaturas y contenidos del curso</p>
+      <a href="Diapositiva3.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva4.html'">
+      <div class="slide-number">04</div>
+      <i class="fas fa-calendar-alt slide-icon"></i>
+      <h3 class="slide-title">Calendario Académico</h3>
+      <p class="slide-description">Fechas importantes y evaluación</p>
+      <a href="Diapositiva4.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva5.html'">
+      <div class="slide-number">05</div>
+      <i class="fas fa-chalkboard-teacher slide-icon"></i>
+      <h3 class="slide-title">Profesorado</h3>
+      <p class="slide-description">Equipo docente por módulos</p>
+      <a href="Diapositiva5.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva6.html'">
+      <div class="slide-number">06</div>
+      <i class="fas fa-tools slide-icon"></i>
+      <h3 class="slide-title">Herramientas</h3>
+      <p class="slide-description">Recursos y tecnologías</p>
+      <a href="Diapositiva6.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva7.html'">
+      <div class="slide-number">07</div>
+      <i class="fas fa-project-diagram slide-icon"></i>
+      <h3 class="slide-title">Proyectos</h3>
+      <p class="slide-description">Trabajos prácticos del curso</p>
+      <a href="Diapositiva7.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva8.html'">
+      <div class="slide-number">08</div>
+      <i class="fas fa-tasks slide-icon"></i>
+      <h3 class="slide-title">Evaluación</h3>
+      <p class="slide-description">Criterios y sistema de calificación</p>
+      <a href="Diapositiva8.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva9.html'">
+      <div class="slide-number">09</div>
+      <i class="fas fa-briefcase slide-icon"></i>
+      <h3 class="slide-title">Salidas Profesionales</h3>
+      <p class="slide-description">Oportunidades laborales</p>
+      <a href="Diapositiva9.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva10.html'">
+      <div class="slide-number">10</div>
+      <i class="fas fa-lightbulb slide-icon"></i>
+      <h3 class="slide-title">Consejos</h3>
+      <p class="slide-description">Recomendaciones para el éxito</p>
+      <a href="Diapositiva10.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+
+    <div class="slide-card" onclick="window.location.href='Diapositiva11.html'">
+      <div class="slide-number">11</div>
+      <i class="fas fa-rocket slide-icon"></i>
+      <h3 class="slide-title">Mensaje Final</h3>
+      <p class="slide-description">Motivación y cierre</p>
+      <a href="Diapositiva11.html" class="slide-link">Ver Diapositiva</a>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="nav-btn" id="nav-toggle-btn" onclick="toggleNavigation()">
+      <i class="fas fa-arrow-down"></i> <span id="nav-btn-text">Diapositivas</span>
+    </button>
+  </div>
+
+  <div class="author-info">
+    <span>Created by</span>
+    <a href="https://github.com/isaiasfl" target="_blank" class="author-link">
+      <i class="fab fa-github"></i> Isaías FL
+    </a>
+  </div>
+
+  <script>
+    let isAtTop = true;
+    
+    function toggleNavigation() {
+      if (isAtTop) {
+        document.getElementById('slides-container').scrollIntoView({
+          behavior: 'smooth'
+        });
+        document.getElementById('nav-toggle-btn').innerHTML = '<i class="fas fa-arrow-up"></i> <span id="nav-btn-text">Arriba</span>';
+      } else {
+        document.getElementById('hero').scrollIntoView({
+          behavior: 'smooth'
+        });
+        document.getElementById('nav-toggle-btn').innerHTML = '<i class="fas fa-arrow-down"></i> <span id="nav-btn-text">Diapositivas</span>';
+      }
+      isAtTop = !isAtTop;
+    }
+
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      const heroHeight = document.getElementById('hero').offsetHeight;
+      
+      if (scrollPosition > heroHeight / 2) {
+        if (isAtTop) {
+          isAtTop = false;
+          document.getElementById('nav-toggle-btn').innerHTML = '<i class="fas fa-arrow-up"></i> <span id="nav-btn-text">Arriba</span>';
+        }
+      } else {
+        if (!isAtTop) {
+          isAtTop = true;
+          document.getElementById('nav-toggle-btn').innerHTML = '<i class="fas fa-arrow-down"></i> <span id="nav-btn-text">Diapositivas</span>';
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.slide-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${0.1 * index}s`;
+      });
+    });
+  </script>
+</body>
+</html>

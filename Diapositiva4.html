@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horario del Grupo 2º DAW Tarde</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        color: #333;
+        overflow-x: hidden;
+        overflow-y: auto; /* permitir scroll vertical */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* alinear arriba para scroll natural */
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+      .slide {
+        width: 1280px;
+        min-height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+    }
+      .header {
+        padding: 40px 70px 20px;
+        position: relative;
+      }
+      .title {
+        font-size: 40px;
+        font-weight: 700;
+        color: #00203f;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .title i {
+        margin-right: 15px;
+        color: #4ecdc4;
+        font-size: 40px;
+      }
+      .content {
+        flex-grow: 1;
+        padding: 0 70px 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .schedule-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        background: white;
+        border-radius: 12px;
+        padding: 15px 20px;
+        box-shadow: 0 4px 12px rgba(0, 32, 63, 0.08);
+      }
+      .schedule-info i {
+        font-size: 28px;
+        color: #4ecdc4;
+        margin-right: 15px;
+      }
+      .schedule-info p {
+        font-size: 20px;
+        color: #555;
+      }
+      .highlight {
+        color: #4ecdc4;
+        font-weight: 600;
+      }
+      .schedule-table {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 32, 63, 0.08);
+        flex-grow: 1;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th {
+        background-color: #00203f;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      th:first-child {
+        width: 15%;
+      }
+      td {
+        padding: 12px 15px;
+        font-size: 18px;
+        border-bottom: 1px solid #e4ecf7;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      .module-name {
+        font-weight: 600;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .teacher {
+        font-size: 16px;
+        color: #555;
+      }
+      .recreo {
+        background-color: #f8f0ff;
+        font-weight: 600;
+        text-align: center;
+        color: #9b59b6;
+      }
+      .module-dwec {
+        background-color: #ffe0e0;
+      }
+      .module-dwes {
+        background-color: #e0f7f7;
+      }
+      .module-diw {
+        background-color: #e0f0ff;
+      }
+      .module-ing {
+        background-color: #e0ffe0;
+      }
+      .module-ipeii {
+        background-color: #fff0e0;
+      }
+      .module-pi {
+        background-color: #ffe0e0;
+      }
+      .module-dapweb {
+        background-color: #e0ffe0;
+      }
+      .module-daia {
+        background-color: #f0e0ff;
+      }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+      
+      .back-button:hover {
+        background: linear-gradient(135deg, rgba(118, 75, 162, 0.9) 0%, rgba(102, 126, 234, 0.9) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+      
+      .back-button i {
+        font-size: 16px;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="slide">
+      <a href="index.html" class="back-button" title="Volver al inicio">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </a>
+
+      <div class="header">
+        <h1 class="title">
+          <i class="fas fa-clock"></i>
+          Horario del Grupo 2º DAW Tarde
+        </h1>
+      </div>
+      <div class="content">
+        <div class="schedule-info">
+          <i class="fas fa-info-circle"></i>
+          <p>
+            <span class="highlight">Recreo: 18:45–19:00</span> | Lectivas
+            totales: <span class="highlight">30 h/semana</span>
+          </p>
+        </div>
+
+        <div class="schedule-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>16:00–16:55</td>
+                <td class="module-dwec">
+                  <span class="module-name">DWEC</span>
+                  <span class="teacher">Isaias Fernández Lozano (FLI)</span>
+                </td>
+                <td class="module-dwec">
+                  <span class="module-name">DWEC</span>
+                  <span class="teacher">Isaias Fernández Lozano (FLI)</span>
+                </td>
+                <td class="module-dwes">
+                  <span class="module-name">DWES</span>
+                  <span class="teacher">Ignacio Cabrero Barragán (CBI)</span>
+                </td>
+                <td class="module-diw">
+                  <span class="module-name">DIW</span>
+                  <span class="teacher">Julio Ángel González García (GGJ)</span>
+                </td>
+                <td class="module-dwes">
+                  <span class="module-name">DWES</span>
+                  <span class="teacher">Ignacio Cabrero Barragán (CBI)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>16:55–17:50</td>
+                <td class="module-dwec">
+                  <span class="module-name">DWEC</span>
+                  <span class="teacher">Isaias Fernández Lozano (FLI)</span>
+                </td>
+                <td class="module-dwec">
+                  <span class="module-name">DWEC</span>
+                  <span class="teacher">Isaias Fernández Lozano (FLI)</span>
+                </td>
+                <td class="module-dwes">
+                  <span class="module-name">DWES</span>
+                  <span class="teacher">Ignacio Cabrero Barragán (CBI)</span>
+                </td>
+                <td class="module-diw">
+                  <span class="module-name">DIW</span>
+                  <span class="teacher">Julio Ángel González García (GGJ)</span>
+                </td>
+                <td class="module-dwes">
+                  <span class="module-name">DWES</span>
+                  <span class="teacher">Ignacio Cabrero Barragán (CBI)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>17:50–18:45</td>
+                <td class="module-dwec">
+                  <span class="module-name">DWEC</span>
+                  <span class="teacher">Isaias Fernández Lozano (FLI)</span>
+                </td>
+                <td class="module-dwec">
+                  <span class="module-name">DWEC</span>
+                  <span class="teacher">Isaias Fernández Lozano (FLI)</span>
+                </td>
+                <td class="module-dwes">
+                  <span class="module-name">DWES</span>
+                  <span class="teacher">Ignacio Cabrero Barragán (CBI)</span>
+                </td>
+                <td class="module-diw">
+                  <span class="module-name">DIW</span>
+                  <span class="teacher">Julio Ángel González García (GGJ)</span>
+                </td>
+                <td class="module-dwes">
+                  <span class="module-name">DWES</span>
+                  <span class="teacher">Ignacio Cabrero Barragán (CBI)</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="recreo" colspan="5">Recreo: 18:45–19:00</td>
+              </tr>
+              <tr>
+                <td>19:00–19:55</td>
+                <td class="module-ing">
+                  <span class="module-name">ING</span>
+                  <span class="teacher">Concepción Leyva García (LGC)</span>
+                </td>
+                <td class="module-daia">
+                  <span class="module-name">DAIA (Opt.)</span>
+                  <span class="teacher">Ramón Román Gálvez (RGR)</span>
+                </td>
+                <td class="module-ing">
+                  <span class="module-name">ING</span>
+                  <span class="teacher">Concepción Leyva García (LGC)</span>
+                </td>
+                <td class="module-ipeii">
+                  <span class="module-name">IPEII</span>
+                  <span class="teacher">José Abril Cid (ACJA)</span>
+                </td>
+                <td class="module-dwes">
+                  <span class="module-name">DWES</span>
+                  <span class="teacher">Ignacio Cabrero Barragán (CBI)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>19:55–20:50</td>
+                <td class="module-pi">
+                  <span class="module-name">PI</span>
+                  <span class="teacher">Alberto Zagalaz Anula (ZAA)</span>
+                </td>
+                <td class="module-daia">
+                  <span class="module-name">DAIA (Opt.)</span>
+                  <span class="teacher">Ramón Román Gálvez (RGR)</span>
+                </td>
+                <td class="module-diw">
+                  <span class="module-name">DIW</span>
+                  <span class="teacher">Julio Ángel González García (GGJ)</span>
+                </td>
+                <td class="module-ipeii">
+                  <span class="module-name">IPEII</span>
+                  <span class="teacher">José Abril Cid (ACJA)</span>
+                </td>
+                <td class="module-dapweb">
+                  <span class="module-name">DAPWEB</span>
+                  <span class="teacher">Alberto Zagalaz Anula (ZAA)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>20:50–21:45</td>
+                <td class="module-pi">
+                  <span class="module-name">PI</span>
+                  <span class="teacher">Alberto Zagalaz Anula (ZAA)</span>
+                </td>
+                <td class="module-daia">
+                  <span class="module-name">DAIA (Opt.)</span>
+                  <span class="teacher">Ramón Román Gálvez (RGR)</span>
+                </td>
+                <td class="module-diw">
+                  <span class="module-name">DIW</span>
+                  <span class="teacher">Julio Ángel González García (GGJ)</span>
+                </td>
+                <td class="module-ipeii">
+                  <span class="module-name">IPEII</span>
+                  <span class="teacher">José Abril Cid (ACJA)</span>
+                </td>
+                <td class="module-dapweb">
+                  <span class="module-name">DAPWEB</span>
+                  <span class="teacher">Alberto Zagalaz Anula (ZAA)</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Normas de Convivencia en el Aula</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body { height: 100%; }
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        color: #333;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* centra verticalmente como el resto */
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+      .slide {
+        width: 1280px;
+        min-height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        margin: 20px auto; /* asegura centrado horizontal */
+    }
+      .header {
+        padding: 40px 70px 20px;
+        position: relative;
+      }
+      .title {
+        font-size: 48px;
+        font-weight: 700;
+        color: #00203f;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .title i {
+        margin-right: 15px;
+        color: #4ecdc4;
+        font-size: 42px;
+      }
+      .content {
+        flex-grow: 1;
+        padding: 0 70px 40px;
+        display: flex;
+        gap: 30px;
+        margin-top: auto; /* centrar verticalmente el bloque principal */
+        margin-bottom: auto;
+      }
+      .rules-container {
+        flex: 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .rule-section {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 32, 63, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        height: 240px; /* más alta para que entre todo el texto */
+      }
+      .rule-section:hover {
+        transform: translateY(-5px);
+      }
+      .section-header {
+        padding: 12px 20px;
+        font-size: 22px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      .punctuality .section-header { background-color: #ff6b6b; }
+      .environment .section-header { background-color: #4ecdc4; }
+      .respect .section-header { background-color: #9b59b6; }
+      .care .section-header { background-color: #27ae60; }
+      .devices .section-header { background-color: #f39c12; }
+      .prohibitions .section-header { background-color: #e74c3c; }
+      .communication .section-header { background-color: #45b7d1; }
+      .section-header i {
+        margin-right: 12px;
+        font-size: 24px;
+      }
+      .rules-content {
+        padding: 16px 22px 32px; /* ajusta ligeramente arriba para ganar espacio */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* baja el texto respecto al header */
+      }
+      .rule-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px; /* más compacto */
+      }
+      .rule-item:last-child {
+        margin-bottom: 0;
+      }
+      .rule-item i {
+        margin-right: 10px;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .punctuality .rule-item i {
+        color: #ff6b6b;
+      }
+      .environment .rule-item i {
+        color: #4ecdc4;
+      }
+      .respect .rule-item i {
+        color: #9b59b6;
+      }
+      .care .rule-item i {
+        color: #27ae60;
+      }
+      .devices .rule-item i {
+        color: #f39c12;
+      }
+      .prohibitions .rule-item i {
+        color: #e74c3c;
+      }
+      .communication .rule-item i {
+        color: #45b7d1;
+      }
+      .rule-text {
+        font-size: 16px;
+        line-height: 1.3;
+        font-weight: 500;
+        color: #000; /* texto en negro para máximo contraste */
+      }
+      .highlight {
+        font-weight: 700;
+      }
+      .punctuality .highlight {
+        color: #ff6b6b;
+      }
+      .environment .highlight {
+        color: #4ecdc4;
+      }
+      .respect .highlight {
+        color: #9b59b6;
+      }
+      .care .highlight {
+        color: #27ae60;
+      }
+      .devices .highlight {
+        color: #f39c12;
+      }
+      .prohibitions .highlight {
+        color: #e74c3c;
+      }
+      .communication .highlight {
+        color: #45b7d1;
+      }
+      .image-container {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+      }
+      .image-wrapper {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 32, 63, 0.1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .image-wrapper img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        flex-grow: 1;
+      }
+      .image-caption {
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        color: #555;
+        background: white;
+      }
+      .note-box {
+        background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+        border-radius: 16px;
+        padding: 15px 20px;
+        box-shadow: 0 8px 20px rgba(0, 32, 63, 0.15);
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .note-box i {
+        font-size: 24px;
+        color: white;
+        margin-right: 15px;
+      }
+      .note-text {
+        font-size: 18px;
+        color: white;
+        line-height: 1.4;
+        font-weight: 500;
+      }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+      
+      .back-button:hover {
+        background: linear-gradient(135deg, rgba(118, 75, 162, 0.9) 0%, rgba(102, 126, 234, 0.9) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+      
+      .back-button i {
+        font-size: 16px;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="slide">
+      <a href="index.html" class="back-button" title="Volver al inicio">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </a>
+
+      <div class="header">
+        <h1 class="title">
+          <i class="fas fa-gavel"></i>
+          Normas de Convivencia en el Aula
+        </h1>
+      </div>
+      <div class="content">
+        <div class="rules-container">
+          <div class="rule-section punctuality">
+            <div class="section-header">
+              <i class="fas fa-clock"></i>
+              Puntualidad y Asistencia
+            </div>
+            <div class="rules-content">
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Asistir <span class="highlight">siempre</span> y con
+                  puntualidad
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  <span class="highlight">Justificar</span> faltas según
+                  normativa
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Permanecer en el aula durante clases
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-section environment">
+            <div class="section-header">
+              <i class="fas fa-book"></i>
+              Ambiente de Trabajo
+            </div>
+            <div class="rules-content">
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Trabajar en <span class="highlight">silencio</span> y orden
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Mantener la <span class="highlight">concentración</span>
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Participar activamente en actividades
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-section respect">
+            <div class="section-header">
+              <i class="fas fa-hands-helping"></i>
+              Respeto y Convivencia
+            </div>
+            <div class="rules-content">
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Tratar con <span class="highlight">respeto</span> a todas las
+                  personas
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Sin <span class="highlight">violencia</span> física o
+                  psicológica
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Resolver conflictos mediante
+                  <span class="highlight">diálogo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-section care">
+            <div class="section-header">
+              <i class="fas fa-broom"></i>
+              Cuidado del Entorno
+            </div>
+            <div class="rules-content">
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Mantener <span class="highlight">limpios</span> todos los
+                  espacios
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">Respetar mobiliario e instalaciones</div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Cuidar pertenencias propias y ajenas
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-section devices">
+            <div class="section-header">
+              <i class="fas fa-mobile-alt"></i>
+              Uso de Dispositivos
+            </div>
+            <div class="rules-content">
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  <span class="highlight">Móviles apagados</span> en horario
+                  lectivo
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Solo uso <span class="highlight">didáctico autorizado</span>
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  En Grado Básico: dispositivos en taquillas
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-section prohibitions">
+            <div class="section-header">
+              <i class="fas fa-ban"></i>
+              Prohibiciones
+            </div>
+            <div class="rules-content">
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  <span class="highlight">Fumar, vapear</span> o consumir
+                  alcohol
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">
+                  Comportamientos que alteren el orden
+                </div>
+              </div>
+              <div class="rule-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="rule-text">Uso inadecuado de espacios comunes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img
+              src="https://sfile.chatglm.cn/images-ppt/aa22c5d971d8.jpg"
+              alt="Normas de convivencia en el aula"
+            />
+            <div class="image-caption">
+              <span class="highlight">Ambiente educativo</span> respetuoso y
+              ordenado
+            </div>
+          </div>
+
+          <div class="note-box">
+            <i class="fas fa-info-circle"></i>
+            <div class="note-text">
+              Estas normas buscan crear un ambiente de respeto, concentración y
+              trabajo en equipo. ¡Entre todos conseguimos un mejor curso!
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

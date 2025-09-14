@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetivos del Curso</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        color: #333;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+      .slide {
+        width: 1280px;
+        min-height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        margin: 20px;
+    }
+      .header {
+        padding: 40px 70px 20px;
+        position: relative;
+      }
+      .title {
+        font-size: 40px;
+        font-weight: 700;
+        color: #00203f;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .title i {
+        margin-right: 15px;
+        color: #4ecdc4;
+        font-size: 40px;
+      }
+      .content {
+        flex-grow: 1;
+        padding: 0 70px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: auto; /* centrar verticalmente el bloque principal */
+        margin-bottom: auto;
+      }
+      .objectives-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      .objective-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 32, 63, 0.08);
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .objective-card:hover {
+        transform: translateY(-5px);
+      }
+      .objective-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #e4ecf7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        flex-shrink: 0;
+        z-index: 1;
+      }
+      .objective-icon i {
+        font-size: 40px;
+        color: #4ecdc4;
+      }
+      .objective-content h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #00203f;
+        z-index: 1;
+      }
+      .objective-content p {
+        font-size: 20px;
+        color: #555;
+        line-height: 1.4;
+        z-index: 1;
+      }
+      .highlight {
+        color: #4ecdc4;
+        font-weight: 600;
+      }
+      .accent-circle {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: rgba(78, 205, 196, 0.1);
+        bottom: -50px;
+        right: -50px;
+        z-index: 0;
+      }
+      .intro-text {
+        text-align: center;
+        font-size: 22px;
+        color: #555;
+        margin-bottom: 40px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+      
+      .back-button:hover {
+        background: linear-gradient(135deg, rgba(118, 75, 162, 0.9) 0%, rgba(102, 126, 234, 0.9) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+      
+      .back-button i {
+        font-size: 16px;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="slide">
+      <a href="index.html" class="back-button" title="Volver al inicio">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </a>
+
+      <div class="header">
+        <h1 class="title">
+          <i class="fas fa-flag-checkered"></i>
+          Objetivos del Curso
+        </h1>
+      </div>
+      <div class="content">
+        <p class="intro-text">
+          Nuestros objetivos clave para este segundo curso de DAW
+        </p>
+
+        <div class="objectives-container">
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="objective-content">
+              <h3>Consolidar conocimientos</h3>
+              <p>
+                Fortalecer
+                <span class="highlight">habilidades técnicas</span> en
+                desarrollo web
+              </p>
+            </div>
+            <div class="accent-circle"></div>
+          </div>
+
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="objective-content">
+              <h3>Proyectos profesionales</h3>
+              <p>
+                Desarrollar
+                <span class="highlight">soluciones completas</span> para
+                clientes reales
+              </p>
+            </div>
+            <div class="accent-circle"></div>
+          </div>
+
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="objective-content">
+              <h3>Inserción laboral</h3>
+              <p>
+                Prepararse para el
+                <span class="highlight">mundo profesional</span> con habilidades
+                demandadas
+              </p>
+            </div>
+            <div class="accent-circle"></div>
+          </div>
+
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="objective-content">
+              <h3>Nuevas tecnologías</h3>
+              <p>
+                Adquirir competencias en
+                <span class="highlight">IA aplicada</span> al desarrollo web
+              </p>
+            </div>
+            <div class="accent-circle"></div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>
